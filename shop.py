@@ -50,7 +50,7 @@ def finalizar_compra(usuario):
               f"{endereco['rua']}, {endereco['numero']} {endereco['complemento']}\n"
               f"{endereco['estado']} - CEP: {endereco['cep']}")
     else:
-        print("Você não tem EcoSpheresuficientes para esta compra.")
+        print("Você não tem EcoCoins suficientes para esta compra.")
 
 def exibir_compras_passadas(usuario):
     if not usuario["saldo_compras"]:
@@ -148,7 +148,7 @@ produtos = {
     "1" : {"nome": "Caneca com a logo da EcoSphere", "preco": 2000.0, "estoque": 50},
     "2" : {"nome": "Ingresso Formula E", "preco": 100000.0, "estoque": 3},
     "3" : {"nome": "Camiseta com a logo da EcoSphere", "preco": 5000.0, "estoque": 15},
-    "4" : {"nome": "Boné da escuderia EcoSphere", "preco": 2500.0, "estoque": 25},
+    "4" : {"nome": "Boné da EcoSphere", "preco": 2500.0, "estoque": 25},
     "5" : {"nome": "Chaveiro com o símbolo da EcoSphere", "preco": 500.0, "estoque": 100},
-    "6" : {"nome": "Adesivo EcoSphere Racing", "preco": 250.0, "estoque": 100}
+    "6" : {"nome": "Adesivo EcoSphere", "preco": 250.0, "estoque": 100}
 }

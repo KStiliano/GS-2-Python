@@ -1,6 +1,6 @@
 import random
 from helpers import meu_index, limpar_tela
-from game_dictionaries import dict_game_forca
+from game_dictionaries import dict_game_forca, perguntas_quiz, desafios_consumo
 from cadastro_login import usuarios
 
 def game_forca():
@@ -50,6 +50,34 @@ def quiz_sustentavel(perguntas):
     else:
         print("Não fique triste com o resultado, vamos continuar aprendendo! Práticas sustentáveis são o caminho para o futuro.")
 
+def desafio_consumo_sustentavel(desafios):
+    print("Bem-vindo ao Desafio de Consumo Sustentável!")
+    consumo_total = 0
+    co2_total = 0
+    desafios_aleatorios = random.sample(desafios, len(desafios))
+    for desafio in desafios_aleatorios:
+        print("\n" + desafio["descricao"])
+        for i, (opcao, consumo, co2) in enumerate(desafio["opcoes"], start=1):
+            print(f"{i}) {opcao} - Consumo: {consumo} kWh, Emissão de CO₂: {co2} kg")
+        escolha = int(input("Escolha uma opção (1-3): ")) - 1
+        if 0 <= escolha < len(desafio["opcoes"]):
+            consumo_escolhido, co2_escolhido = desafio["opcoes"][escolha][1], desafio["opcoes"][escolha][2]
+            consumo_total += consumo_escolhido
+            co2_total += co2_escolhido
+            print(f"\nVocê escolheu: {desafio['opcoes'][escolha][0]}")
+            print(f"Impacto desta escolha: {consumo_escolhido} kWh e {co2_escolhido} kg de CO₂.")
+        else:
+            print("Escolha inválida, opção ignorada.")
+    print(f"\nDesafio concluído! Seu consumo total foi de {consumo_total:.2f} kWh e sua emissão de CO₂ foi de {co2_total:.2f} kg.")
+    if consumo_total < 2:
+        print("Parabéns! Você é um exemplo de sustentabilidade!")
+    elif consumo_total < 4:
+        print("Ótimo trabalho! Suas escolhas são bastante sustentáveis.")
+    elif consumo_total < 6:
+        print("Bom esforço! Mas há espaço para melhorar nas escolhas diárias.")
+    else:
+        print("Vamos continuar aprendendo sobre sustentabilidade para fazer escolhas mais conscientes no futuro.")
+
 def games_menu(usuario):
     while True:
         print("Escolha um jogo:")
@@ -85,5 +113,6 @@ def games_menu(usuario):
 
 games = {
     "1": {"name": "Eco Forca", "game": game_forca},
-    "2": {"name": "Eco Quiz", "game": quiz_sustentavel}
+    "2": {"name": "Eco Quiz", "game": quiz_sustentavel},
+    "3": {"name": "Desafio de Consumo", "game": desafio_consumo_sustentavel}
 }

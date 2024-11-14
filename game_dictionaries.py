@@ -68,3 +68,46 @@ perguntas_quiz = {
     (["A) Diminuição do nível do mar", "B) Resfriamento global", "C) Extinção de espécies", 
       "D) Aumento das calotas polares", "E) Estabilização do clima"], 2),
 }
+
+desafios_consumo = [
+    {
+        "descricao": "Você está em casa em um dia quente. Como deseja refrescar o ambiente?",
+        "opcoes": [
+            ("Ventilador ligado por 2 horas", 0.5, 0.1),
+            ("Ar-condicionado no modo econômico por 1 hora", 1.5, 0.3),
+            ("Ar-condicionado no modo máximo por 1 hora", 3, 0.7)
+        ]
+    },
+    {
+        "descricao": "Você precisa iluminar a sala à noite. Qual opção você escolhe?",
+        "opcoes": [
+            ("Lâmpadas LED ligadas por 4 horas", 0.4, 0.05),
+            ("Lâmpadas fluorescentes por 4 horas", 0.6, 0.1),
+            ("Lâmpadas incandescentes por 4 horas", 1.2, 0.3)
+        ]
+    },
+    {
+        "descricao": "Na cozinha, você está preparando uma refeição. Qual fonte de aquecimento você usa?",
+        "opcoes": [
+            ("Fogão a gás", 1.0, 0.2),
+            ("Forno elétrico por 30 minutos", 1.8, 0.4),
+            ("Micro-ondas por 10 minutos", 0.5, 0.1)
+        ]
+    },
+    {
+        "descricao": "Você precisa lavar roupas. Como vai realizar essa tarefa?",
+        "opcoes": [
+            ("Máquina de lavar em modo econômico", 0.5, 0.1),
+            ("Máquina de lavar em modo normal", 1.0, 0.2),
+            ("Lavar a mão e secar ao sol", 0.0, 0.0)
+        ]
+    },
+    {
+        "descricao": "Você vai ao trabalho. Qual meio de transporte você escolhe?",
+        "opcoes": [
+            ("Bicicleta", 0.0, 0.0),
+            ("Carro elétrico", 0.3, 0.05),
+            ("Carro a combustão", 1.5, 0.3)
+        ]
+    }
+]
