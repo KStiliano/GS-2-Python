@@ -1,5 +1,5 @@
 from helpers import forca_opcao, limpar_tela
-from sys_functions import sys_dados
+from dados_comunidade import consultar_dados
 from cadastro_login import cadastrar_usuario, login
 from shop import loja, produtos_disponiveis, produtos
 from games import games_menu
@@ -26,7 +26,7 @@ while True:
         else:
             print('\nVocê precisa estar logado para jogar.')
     elif caminho == '2':
-        sys_dados()
+        consultar_dados()
     elif caminho == '3':
         if usuario:
             loja(usuario)

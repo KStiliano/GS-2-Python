@@ -36,8 +36,13 @@ def quiz_sustentavel(perguntas):
         print("\n" + pergunta)
         for i, opcao in enumerate(opcoes):
             print(opcao)
-        resposta = input("Escolha sua resposta (A-E): ").strip().upper()
-        if resposta in "ABCDE" and ord(resposta) - ord("A") == resposta_correta:
+        while True:
+            resposta = input("Escolha sua resposta (A-E): ").strip().upper()
+            if resposta in "ABCDE":
+                break
+            else:
+                print("Escolha inválida! Por favor, escolha uma das opções válidas: A, B, C, D, ou E.")
+        if ord(resposta) - ord("A") == resposta_correta:
             print("Correto!")
             pontuacao += 1
         else:
@@ -59,15 +64,20 @@ def desafio_consumo_sustentavel(desafios):
         print("\n" + desafio["descricao"])
         for i, (opcao, consumo, co2) in enumerate(desafio["opcoes"], start=1):
             print(f"{i}) {opcao} - Consumo: {consumo} kWh, Emissão de CO₂: {co2} kg")
-        escolha = int(input("Escolha uma opção (1-3): ")) - 1
-        if 0 <= escolha < len(desafio["opcoes"]):
-            consumo_escolhido, co2_escolhido = desafio["opcoes"][escolha][1], desafio["opcoes"][escolha][2]
-            consumo_total += consumo_escolhido
-            co2_total += co2_escolhido
-            print(f"\nVocê escolheu: {desafio['opcoes'][escolha][0]}")
-            print(f"Impacto desta escolha: {consumo_escolhido} kWh e {co2_escolhido} kg de CO₂.")
-        else:
-            print("Escolha inválida, opção ignorada.")
+        while True: 
+            try:
+                escolha = int(input("Escolha uma opção (1-3): ")) - 1  
+                if 0 <= escolha < len(desafio["opcoes"]):  
+                    break  
+                else:
+                    print("Escolha inválida! Por favor, escolha uma opção válida entre 1, 2 ou 3.")
+            except ValueError:
+                print("Entrada inválida! Por favor, insira um número entre 1 e 3.")
+        consumo_escolhido, co2_escolhido = desafio["opcoes"][escolha][1], desafio["opcoes"][escolha][2]
+        consumo_total += consumo_escolhido
+        co2_total += co2_escolhido
+        print(f"\nVocê escolheu: {desafio['opcoes'][escolha][0]}")
+        print(f"Impacto desta escolha: {consumo_escolhido} kWh e {co2_escolhido} kg de CO₂.")
     print(f"\nDesafio concluído! Seu consumo total foi de {consumo_total:.2f} kWh e sua emissão de CO₂ foi de {co2_total:.2f} kg.")
     if consumo_total < 2:
         print("Parabéns! Você é um exemplo de sustentabilidade!")
@@ -84,7 +94,9 @@ def games_menu(usuario):
         for key, game in games.items():
             print(f"{key}. {game['name']}")
         choice = input("Digite o número da escolha: ")
-        if choice in games:
+        if choice == "0":  
+            break
+        elif choice in games:
             if games[choice]["game"]():
                 play_again = input("Deseja jogar novamente? (s/n): ")
                 if play_again.lower() == "s":
@@ -94,7 +106,7 @@ def games_menu(usuario):
                     if usuario['primeira_vez']:
                         usuario['primeira_vez'] = False
                         usuario['ECs'] += 1500
-                        print(f"{usuario['username']}, por ter jogado pela primeira vez algum de nossos jogos, você receberá 1000 ECs de bônus")
+                        print(f"{usuario['username']}, por ter jogado pela primeira vez algum de nossos jogos, você receberá 1500 ECs de bônus")
                     break
             else:
                 play_again = input("Deseja jogar novamente? (s/n): ")
@@ -105,7 +117,7 @@ def games_menu(usuario):
                     if usuario['primeira_vez']:
                         usuario['primeira_vez'] = False
                         usuario['ECs'] += 1500
-                        print(f"{usuario['username']}, por ter jogado pela primeira vez algum de nossos jogos, você receberá 1000 ECs de bônus")
+                        print(f"{usuario['username']}, por ter jogado pela primeira vez algum de nossos jogos, você receberá 1500 ECs de bônus")
                     break
         else:
             print("Opção inválida. Tente novamente!")
@@ -113,6 +125,7 @@ def games_menu(usuario):
 
 games = {
     "1": {"name": "Eco Forca", "game": game_forca},
-    "2": {"name": "Eco Quiz", "game": quiz_sustentavel},
-    "3": {"name": "Desafio de Consumo", "game": desafio_consumo_sustentavel}
+    "2": {"name": "Eco Quiz", "game": quiz_sustentavel, "args": perguntas_quiz},
+    "3": {"name": "Desafio de Consumo", "game": desafio_consumo_sustentavel, "args": desafios_consumo},
+    "0": {"name": "Sair"}
 }
