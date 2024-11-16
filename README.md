@@ -20,7 +20,7 @@ Um app gamificado em Python da EcoSphere, que dá ao usuário escolhas de seçã
 </ul>
 <br>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/helpers.py">Código</a> 🧑‍💻
  
 ```c
 def limpar_tela(linhas=10):
@@ -86,7 +86,7 @@ Imprime uma lista de itens, um por linha se `line_break` for `True` (padrão), o
 Retorna a string formatada para possível reutilização.
 <hr>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/cadastro_login.py">Código</a> 🧑‍💻
 
 ```c
 def cadastrar_usuario():
@@ -192,7 +192,7 @@ usuarios = {
 Um dicionário que armazena informações dos usuários, onde as chaves são os nomes de usuário, e os valores são outros dicionários contendo senha, email, permissões de administrador, primeira vez jogando os minigames, saldo de compras, Mahindra Coins, carrinho de compras e o endereço.
 <hr>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/app.py">Código</a> 🧑‍💻
 
 ```c
 from helpers import forca_opcao, limpar_tela
@@ -261,7 +261,7 @@ Login/Cadastro: O usuário começa no menu de login/cadastro. Caso já tenha uma
 Menu Principal: Após o login, o usuário é direcionado ao menu principal (que é gerido em outro arquivo), onde pode acessar as funções de banco de dados (para consultar informações de consumo energético) ou a Loja (para gastar seus EcoCoins).
 <hr>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/games.py">Código</a> 🧑‍💻
 
 Essa seção implementa três mini-games temáticos.
 
@@ -460,7 +460,7 @@ Dicionário de Jogos:
     <li>O usuário tem a opção de sair.</li>
 </ul>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/game_dictionaries.py">Código</a> 🧑‍💻
 Essa seção implementa os dicionários de informações importantes usados para os minigames.
 ```c
 
@@ -581,7 +581,7 @@ desafios_consumo = [
 ```
 <hr>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/dados_comunidade.py">Código</a> 🧑‍💻
 
 Este módulo gerencia e apresenta dados relacionados ao consumo de energia, emissões de CO₂ e economia financeira por estado brasileiro. Os dados são carregados de um arquivo JSON (dados.json), e as funções fornecem diferentes formas de consulta e visualização.
 
@@ -753,7 +753,7 @@ Descrição:
 </ul>
 <hr>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/dados.json">Código</a> 🧑‍💻
 O arquivo JSON contém os dados por estado em formato estruturado. Cada estado possui as seguintes métricas:
 <ul>
     <li>consumo_energia: Consumo médio de energia elétrica (em kW/h).</li>
@@ -762,7 +762,7 @@ O arquivo JSON contém os dados por estado em formato estruturado. Cada estado p
     <li>economia_financeira: Economia financeira potencial (em milhares de Reais).</li>
 </ul>
 
-## Explicando o <a href="path">Código</a> 🧑‍💻
+## Explicando o <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/shop.py">Código</a> 🧑‍💻
 
 Essa seção implementa uma loja virtual, onde os usuários podem comprar itens como canecas, camisetas e ingressos usando a moeda virtual Eco Coins (EC). 
 <br>
@@ -970,4 +970,4 @@ produtos = {
 Um dicionário que armazena o catálogo de produtos da loja virtual, onde as chaves são os IDs do respectivo produto, e os valores são outros dicionários contendo nome, preço e estoque do produto.
 <hr>
 
-<center>Este projeto encontra sob a <a href="path">MIT License.</a></center>
+<center>Este projeto encontra sob a <a href="https://github.com/KStiliano/GS-2-Python/blob/Dev-Kayky/LICENSE">MIT License.</a></center>
