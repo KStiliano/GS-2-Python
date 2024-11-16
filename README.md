@@ -1,4 +1,4 @@
-# GS-2-Python
+# GS 2 Python
 
 ## Integrantes 👋
 <ul> 
@@ -759,14 +759,8 @@ O arquivo JSON contém os dados por estado em formato estruturado. Cada estado p
     <li>consumo_energia: Consumo médio de energia elétrica (em kW/h).</li>
     <li>co2_emissoes: Emissões de CO₂ (em megatoneladas).</li>
     <li>consumo_ideal: Consumo ideal de energia elétrica (em kW/h).</li>
-    <li>economia_financeira: Economia financeira potencial (em milhares de reais).</li>
+    <li>economia_financeira: Economia financeira potencial (em milhares de Reais).</li>
 </ul>
-
-
-
-
-
-
 
 ## Explicando o <a href="path">Código</a> 🧑‍💻
 
@@ -777,7 +771,7 @@ Essa seção implementa uma loja virtual, onde os usuários podem comprar itens 
 def produtos_disponiveis():
     print("\nProdutos disponíveis:")
     for id_produto, info in produtos.items():
-        print(f"{id_produto} - {info['nome']} : {info['preco']} MCs (Estoque: {info['estoque']})")
+        print(f"{id_produto} - {info['nome']} : {info['preco']} ECs (Estoque: {info['estoque']})")
 ```
 
 Printa o catálogo de produtos da loja.
@@ -824,21 +818,21 @@ def finalizar_compra(usuario):
             total_compra += estoque * preco
             produtos[id_produto]["estoque"] = 0
             itens_comprados.append((produtos[id_produto]["nome"], estoque, preco))
-    if usuario["MCs"] >= total_compra:
-        usuario["MCs"] -= total_compra
+    if usuario["ECs"] >= total_compra:
+        usuario["ECs"] -= total_compra
         usuario["saldo_compras"].append({"itens": itens_comprados, "total": total_compra})
         usuario["carrinho"] = {}  
         endereco = usuario["endereco"]
-        print(f"Compra realizada com sucesso! Total: {total_compra} MCs")
+        print(f"Compra realizada com sucesso! Total: {total_compra} EcoCoins")
         print(f"Seu pedido será enviado para:\n"
               f"{endereco['rua']}, {endereco['numero']} {endereco['complemento']}\n"
               f"{endereco['estado']} - CEP: {endereco['cep']}")
     else:
-        print("Você não tem Mahindra Coins suficientes para esta compra.")
+        print("Você não tem EcoCoins suficientes para esta compra.")
 ```
 
 Caso o usuário não tenha um endereço cadastrado ele é obrigado a preencher todos os campos e após isso finaliza-se a compra dos produtos no carrinho do usuário. Verifica se a quantidade de itens no carrinho está disponível no estoque, ajusta o carrinho se necessário e atualiza o estoque.
-Deduz o total da compra do saldo de Mahindra Coins (MCs) do usuário, esvaziando o carrinho após a compra.
+Deduz o total da compra do saldo de EcoCoins (ECs) do usuário, esvaziando o carrinho após a compra.
 <hr>
 
 ```c
@@ -849,12 +843,12 @@ def exibir_compras_passadas(usuario):
         for id, compra in enumerate(usuario["saldo_compras"], start=1):
             print(f"\nCompra {id}:")
             for item in compra["itens"]:
-                print(f"- Produto: {item[0]}, Quantidade: {item[1]}, Preço: {item[2]} MCs /cada")
-            print(f"Total da compra: {compra['total']} MCs")
-        print(f"Saldo restante: {usuario['MCs']} MCs")
+                print(f"- Produto: {item[0]}, Quantidade: {item[1]}, Preço: {item[2]} ECs /cada")
+            print(f"Total da compra: {compra['total']} ECs")
+        print(f"Saldo restante: {usuario['ECs']} ECs")
 ```
 
-Exibe as compras passadas do usuário. Para cada compra, exibe os itens comprados, suas quantidades, preços e o total gasto, além de mostrar o saldo restante de MCs.
+Exibe as compras passadas do usuário. Para cada compra, exibe os itens comprados, suas quantidades, preços e o total gasto, além de mostrar o saldo restante de ECs.
 <hr>
 
 ```c
@@ -927,8 +921,8 @@ def admin_zone():
 
 ```c
 def loja(usuario):
-    print(f"Bem-vindo à loja da Mahindra Racing, {usuario['username']}!")
-    print(f"Seu saldo atual é: {usuario['MCs']} MCs")
+    print(f"Bem-vindo à loja da EcoSphere, {usuario['username']}!")
+    print(f"Seu saldo atual é: {usuario['ECs']} EcoCoins")
     while True:
         produtos_disponiveis()
         if usuario["admin"]:
@@ -965,12 +959,11 @@ Exibe a loja, mostrando os produtos disponíveis com seus respectivos preços e 
 
 ```c
 produtos = {
-    "1" : {"nome": "Caneca com a logo da Mahindra", "preco": 2000.0, "estoque": 50},
-    "2" : {"nome": "Ingresso Formula E", "preco": 100000.0, "estoque": 3},
-    "3" : {"nome": "Camiseta com a logo da Mahindra", "preco": 5000.0, "estoque": 15},
-    "4" : {"nome": "Boné da escuderia Mahindra", "preco": 2500.0, "estoque": 25},
-    "5" : {"nome": "Chaveiro com o símbolo da Mahindra", "preco": 500.0, "estoque": 100},
-    "6" : {"nome": "Adesivo Mahindra Racing", "preco": 250.0, "estoque": 100}
+    "1" : {"nome": "Caneca com a logo da EcoSphere", "preco": 2000.0, "estoque": 50},
+    "2" : {"nome": "Camiseta com a logo da EcoSphere", "preco": 5000.0, "estoque": 15},
+    "3" : {"nome": "Boné da EcoSphere", "preco": 2500.0, "estoque": 25},
+    "4" : {"nome": "Chaveiro com o símbolo da EcoSphere", "preco": 500.0, "estoque": 100},
+    "5" : {"nome": "Adesivo EcoSphere", "preco": 250.0, "estoque": 100}
 }
 ```
 
