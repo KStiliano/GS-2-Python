@@ -73,7 +73,7 @@ usuarios = {
         "admin": False, 
         "primeira_vez": True,
         "saldo_compras": [], 
-        "MCs": 2500, 
+        "ECs": 2500, 
         "carrinho": {},
         "endereco": {
             "estado": 'estado',
