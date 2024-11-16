@@ -1,4 +1,4 @@
-# GS 2 Python
+# GS 2 - Computational Thinking with Python
 
 ## Integrantes 👋
 <ul> 
