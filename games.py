@@ -97,7 +97,12 @@ def games_menu(usuario):
         if choice == "0":  
             break
         elif choice in games:
-            if games[choice]["game"]():
+            game = games[choice]
+            if "args" in game:
+                result = game["game"](game["args"])
+            else:
+                result = game["game"]()
+            if result:
                 play_again = input("Deseja jogar novamente? (s/n): ")
                 if play_again.lower() == "s":
                     limpar_tela()
