@@ -134,7 +134,7 @@ def admin_zone():
 
 
 def loja(usuario):
-    print(f"Bem-vindo à loja da EcoSphere, {usuario['username']}!")
+    print(f"Bem-vindo à loja da EcoLink, {usuario['username']}!")
     print(f"Seu saldo atual é: {usuario['ECs']} EcoCoins")
     while True:
         produtos_disponiveis()
@@ -172,9 +172,9 @@ def loja(usuario):
 
 
 produtos = {
-    "1": {"nome": "Caneca com a logo da EcoSphere", "preco": 2000.0, "estoque": 50},
-    "2": {"nome": "Camiseta com a logo da EcoSphere", "preco": 5000.0, "estoque": 15},
-    "3": {"nome": "Boné da EcoSphere", "preco": 2500.0, "estoque": 25},
-    "4": {"nome": "Chaveiro com o símbolo da EcoSphere", "preco": 500.0, "estoque": 100},
-    "5": {"nome": "Adesivo EcoSphere", "preco": 250.0, "estoque": 100}
+    "1": {"nome": "Caneca com a logo da EcoLink", "preco": 2000.0, "estoque": 50},
+    "2": {"nome": "Camiseta com a logo da EcoLink", "preco": 5000.0, "estoque": 15},
+    "3": {"nome": "Boné da EcoLink", "preco": 2500.0, "estoque": 25},
+    "4": {"nome": "Chaveiro com o símbolo da EcoLink", "preco": 500.0, "estoque": 100},
+    "5": {"nome": "Adesivo EcoLink", "preco": 250.0, "estoque": 100}
 }
