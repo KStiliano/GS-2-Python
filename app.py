@@ -5,7 +5,7 @@ from shop import loja, produtos_disponiveis, produtos
 from games import games_menu
 
 opcoes = ['0', '1', '2', '3', '4']
-nome_da_empresa = "EcoSphere"
+nome_da_empresa = "EcoLink"
 usuario = None
 while True:
     print()
