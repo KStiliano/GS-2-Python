@@ -1,18 +1,14 @@
 from helpers import forca_opcao
 
-
 def produtos_disponiveis():
     print("\nProdutos disponíveis:")
     for id_produto, info in produtos.items():
-        print(f"{id_produto} - {info['nome']} : {info['preco']
-                                                 } ECs (Estoque: {info['estoque']})")
-
+        print(f"{id_produto} - {info['nome']} : {info['preco']} ECs (Estoque: {info['estoque']})")
 
 def adicionar_ao_carrinho(usuario, id_produto, quantidade):
     if id_produto not in usuario["carrinho"]:
         usuario["carrinho"][id_produto] = 0
     usuario["carrinho"][id_produto] += quantidade
-
 
 def finalizar_compra(usuario):
     if not usuario["endereco"].get("estado"):
@@ -41,8 +37,7 @@ def finalizar_compra(usuario):
             itens_comprados.append(
                 (produtos[id_produto]["nome"], quantidade, preco))
         else:
-            print(f"Quantidade de {
-                  produtos[id_produto]['nome']} insuficiente no estoque. Sua compra será ajustada.")
+            print(f"Quantidade de {produtos[id_produto]['nome']} insuficiente no estoque. Sua compra será ajustada.")
             usuario["carrinho"][id_produto] = estoque
             total_compra += estoque * preco
             produtos[id_produto]["estoque"] = 0
@@ -56,12 +51,10 @@ def finalizar_compra(usuario):
         endereco = usuario["endereco"]
         print(f"Compra realizada com sucesso! Total: {total_compra} EcoCoins")
         print(f"Seu pedido será enviado para:\n"
-              f"{endereco['rua']}, {endereco['numero']} {
-                  endereco['complemento']}\n"
+              f"{endereco['rua']}, {endereco['numero']} {endereco['complemento']}\n"
               f"{endereco['estado']} - CEP: {endereco['cep']}")
     else:
         print("Você não tem EcoCoins suficientes para esta compra.")
-
 
 def exibir_compras_passadas(usuario):
     if not usuario["saldo_compras"]:
@@ -75,7 +68,6 @@ def exibir_compras_passadas(usuario):
             print(f"Total da compra: {compra['total']} ECs")
         print(f"Saldo restante: {usuario['ECs']} ECs")
 
-
 def adicionar_produto():
     id_produto = str(len(produtos) + 1)
     nome_produto = input("Digite o nome do novo produto:\n--> ")
@@ -85,22 +77,18 @@ def adicionar_produto():
                             "preco": preco, "estoque": estoque}
     print(f"Produto {nome_produto} adicionado com sucesso!")
 
-
 def modificar_produto():
     id_produto = input(
         "Digite o ID do produto que deseja modificar o estoque:\n--> ")
     if id_produto in produtos:
         novo_estoque = int(input("Digite a nova quantidade em estoque:\n--> "))
         produtos[id_produto]["estoque"] = novo_estoque
-        print(f"Estoque do produto {
-              produtos[id_produto]['nome']} atualizado para {novo_estoque}.")
+        print(f"Estoque do produto {produtos[id_produto]['nome']} atualizado para {novo_estoque}.")
         novo_preco = float(input("Digite o novo preço:\n--> "))
         produtos[id_produto]["preco"] = novo_preco
-        print(f"Preço do produto {
-              produtos[id_produto]['nome']} atualizado para {novo_preco}.")
+        print(f"Preço do produto {produtos[id_produto]['nome']} atualizado para {novo_preco}.")
     else:
         print("Produto não encontrado.")
-
 
 def remover_produto():
     id_produto = input("Digite o ID do produto que deseja remover:\n--> ")
@@ -116,7 +104,6 @@ def remover_produto():
     else:
         print("Produto não encontrado.")
 
-
 def admin_zone():
     opcao_crud_admin = ["adicionar", "modificar", "remover"]
     admin_opcao = forca_opcao(
@@ -131,7 +118,6 @@ def admin_zone():
         elif admin_action == "remover":
             remover_produto()
         produtos_disponiveis()
-
 
 def loja(usuario):
     print(f"Bem-vindo à loja da EcoLink, {usuario['username']}!")
@@ -150,15 +136,13 @@ def loja(usuario):
             continue
         if escolha in produtos:
             try:
-                quantidade = int(input(f"Quantas unidades de {
-                                 produtos[escolha]['nome']} você deseja adicionar ao carrinho?\n--> "))
+                quantidade = int(input(f"Quantas unidades de {produtos[escolha]['nome']} você deseja adicionar ao carrinho?\n--> "))
             except ValueError:
                 print("Por favor, insira um número válido para a quantidade.")
                 continue
             if quantidade <= produtos[escolha]["estoque"]:
                 adicionar_ao_carrinho(usuario, escolha, quantidade)
-                print(f"{quantidade} unidade(s) de {
-                      produtos[escolha]['nome']} adicionada(s) ao carrinho.")
+                print(f"{quantidade} unidade(s) de {produtos[escolha]['nome']} adicionada(s) ao carrinho.")
             else:
                 print("Quantidade em estoque insuficiente.")
         else:
@@ -169,7 +153,6 @@ def loja(usuario):
         if continuar == 'n':
             finalizar_compra(usuario)
             break
-
 
 produtos = {
     "1": {"nome": "Caneca com a logo da EcoLink", "preco": 2000.0, "estoque": 50},
